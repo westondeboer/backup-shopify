@@ -9,9 +9,9 @@ Create a .env environment configuration file to hold your Shopify API credential
 touch config.env
 and in the file:
 
-SHOPIFY_URL=your-store.myshopify.com&nbsp;
-SHOPIFY_API_KEY=yourapikeylettersandnumbers&nbsp;
-SHOPIFY_API_PASSWORD=yourapipasswordlettersandnumbers&nbsp;
+SHOPIFY_URL=your-store.myshopify.com<br>
+SHOPIFY_API_KEY=yourapikeylettersandnumbers<br>
+SHOPIFY_API_PASSWORD=yourapipasswordlettersandnumbers<br>
 
 
 Todo:
