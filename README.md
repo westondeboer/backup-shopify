@@ -10,9 +10,9 @@ touch config.env
 and in the file:
 
 ```
-SHOPIFY_URL=your-store.myshopify.com<br>
-SHOPIFY_API_KEY=yourapikeylettersandnumbers<br>
-SHOPIFY_API_PASSWORD=yourapipasswordlettersandnumbers<br>
+SHOPIFY_URL=your-store.myshopify.com
+SHOPIFY_API_KEY=yourapikeylettersandnumbers
+SHOPIFY_API_PASSWORD=yourapipasswordlettersandnumbers
 ```
 
 Task List:
