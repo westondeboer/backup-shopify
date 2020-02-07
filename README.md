@@ -27,3 +27,4 @@ Task List:
 - [ ] Theme Backup
 - [ ] Store Policies Backup
 - [ ] Shipping Zones Backup
+- [ ] Convert to new API
