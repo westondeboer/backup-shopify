@@ -20,8 +20,8 @@ Task List:
 - [x] Orders to csv
 - [x] Products to csv
 - [ ] Products Images Backup
-- [ ] Customers Backup
-- [ ] Gift Cards Backup
+- [x] Customers Backup
+- [x] Gift Cards Backup
 - [ ] Collections Backup
 - [ ] Pages Backup
 - [ ] Theme Backup
