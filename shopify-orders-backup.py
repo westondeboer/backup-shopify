@@ -1,7 +1,6 @@
 import csv
 import json
 import requests
-import math
 import os
 
 # Environment variables
@@ -11,13 +10,15 @@ if os.path.exists('config.env'):
         if len(var) == 2:
             os.environ[var[0]] = var[1].replace("\"", "")
 
-count = requests.get('https://' + os.getenv('SHOPIFY_API_KEY') + ':' + os.getenv('SHOPIFY_API_PASSWORD') + '@' + os.getenv('SHOPIFY_URL') + '.myshopify.com/admin/orders/count.json').json().get('count')
+url = 'https://' + os.getenv('SHOPIFY_URL') + '.myshopify.com/admin/api/2020-01/'
 
 params = {'limit': 250}
-pages = math.ceil(count/250)
-num = 0
+page_number = 1
+count = requests.get(url + 'orders/count.json',auth=(os.getenv('SHOPIFY_API_KEY'), os.getenv('SHOPIFY_API_PASSWORD'))).json().get('count')
 
-print(count)
+print("Total Orders: #{count}".format(count=count))
+
+orders = requests.get(url + 'orders.json',params={**params},auth=(os.getenv('SHOPIFY_API_KEY'), os.getenv('SHOPIFY_API_PASSWORD')))
 
 f = csv.writer(open("orders.csv", "w"))
 
@@ -88,22 +89,19 @@ f.writerow(["Name","Email","Financial Status","Paid at","Fulfillment Status","Fu
 "Receipt Number",
 ])
 
-
-for page in range(1, pages+1):
-
-	solditems = requests.get('https://' + os.getenv('SHOPIFY_API_KEY') + ':' + os.getenv('SHOPIFY_API_PASSWORD') + '@' + os.getenv('SHOPIFY_URL') + '.myshopify.com/admin/orders.json',params={'page': page, **params})
-	x = solditems.json()
-	
-	for item in x["orders"]:
+while orders:
+	print("Processing page: #{page_number}".format(page_number=page_number))
+	try:
+		x = orders.json()
+		for item in x["orders"]:	
+			order_num = 0
 				
-		order_num = 0
+			for y in item["line_items"]:
+					shipping_price = item["total_shipping_price_set"]["shop_money"]["amount"]
 				
-		for y in item["line_items"]:
-				shipping_price = item["total_shipping_price_set"]["shop_money"]["amount"]
-				
-				fin = item["financial_status"]
+					fin = item["financial_status"]
 						
-				if order_num == 0:
+					if order_num == 0:
 								fin = item["financial_status"]
 								paid_at = item["created_at"]
 								full = item["fulfillment_status"]
@@ -112,12 +110,12 @@ for page in range(1, pages+1):
 								sub = item["subtotal_price"]
 								total_tax = item["total_tax_set"]["shop_money"]["amount"]
 								total_p = item["total_price"]
-				else:
+					else:
 								fin = ""
 								
-				order_num += 1
+					order_num += 1
 						
-				f.writerow(
+					f.writerow(
 				[item["name"],
 				item["email"],
 				fin,
@@ -190,5 +188,11 @@ for page in range(1, pages+1):
 				"Tax 5 Value",
 				item["phone"],
 				"Receipt",
-				])
-	num += 1
+					])
+		orders = orders.links['next']['url']
+		orders = requests.get(orders,params={**params},auth=(os.getenv('SHOPIFY_API_KEY'), os.getenv('SHOPIFY_API_PASSWORD')))
+		
+	except KeyError:
+   		orders = ""
+
+	page_number += 1
