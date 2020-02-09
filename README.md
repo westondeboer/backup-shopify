@@ -10,12 +10,21 @@ touch config.env
 and in the file:
 
 ```
-SHOPIFY_URL=your-store.myshopify.com<br>
-SHOPIFY_API_KEY=yourapikeylettersandnumbers<br>
-SHOPIFY_API_PASSWORD=yourapipasswordlettersandnumbers<br>
+SHOPIFY_URL=your-store.myshopify.com
+SHOPIFY_API_KEY=yourapikeylettersandnumbers
+SHOPIFY_API_PASSWORD=yourapipasswordlettersandnumbers
 ```
 
 Task List:
 - [x] Draft Orders to csv
 - [x] Orders to csv
 - [x] Products to csv
+- [ ] Products Images Backup
+- [ ] Customers Backup
+- [ ] Gift Cards Backup
+- [ ] Collections Backup
+- [ ] Pages Backup
+- [ ] Theme Backup
+- [ ] Store Policies Backup
+- [ ] Shipping Zones Backup
+- [ ] Convert to new API
