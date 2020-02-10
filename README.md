@@ -19,7 +19,7 @@ Task List:
 - [x] Draft Orders to csv
 - [x] Orders to csv
 - [x] Products to csv
-- [ ] Products Images Backup
+- [x] Products Images Backup
 - [x] Customers Backup
 - [x] Gift Cards Backup
 - [ ] Collections Backup
