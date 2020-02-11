@@ -23,7 +23,7 @@ Task List:
 - [x] Customers Backup
 - [x] Gift Cards Backup
 - [ ] Collections Backup
-- [ ] Pages Backup
+- [x] Pages Backup
 - [x] Theme Backup
 - [ ] Store Policies Backup
 - [ ] Shipping Zones Backup
