@@ -24,7 +24,7 @@ Task List:
 - [x] Gift Cards Backup
 - [ ] Collections Backup
 - [ ] Pages Backup
-- [ ] Theme Backup
+- [x] Theme Backup
 - [ ] Store Policies Backup
 - [ ] Shipping Zones Backup
 - [x] Convert to new API
