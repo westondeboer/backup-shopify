@@ -22,9 +22,9 @@ Task List:
 - [x] Products Images Backup
 - [x] Customers Backup
 - [x] Gift Cards Backup
-- [ ] Collections Backup
+- [x] Collections Backup
 - [x] Pages Backup
 - [x] Theme Backup
 - [x] Store Policies Backup
-- [ ] Shipping Zones Backup
+- [x] Shipping Zones Backup
 - [x] Convert to new API
