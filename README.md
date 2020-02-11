@@ -25,6 +25,6 @@ Task List:
 - [ ] Collections Backup
 - [x] Pages Backup
 - [x] Theme Backup
-- [ ] Store Policies Backup
+- [x] Store Policies Backup
 - [ ] Shipping Zones Backup
 - [x] Convert to new API
