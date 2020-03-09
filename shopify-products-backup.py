@@ -33,10 +33,12 @@ while products:
 				sku = d["sku"]
 				grams = d["grams"]
 				inventory_quantity = d["inventory_quantity"]
-	
+			
+			if len(item["images"]) == 0:
+				image = ""
+			
 			for e in item["images"]:
 				image = e["src"]
-		
 			f.writerow([item["handle"],item["title"],"",item["vendor"],item["product_type"],item["tags"],"","","","","","","",sku,grams,"shopify",inventory_quantity,"deny","manual",price,"","TRUE","TRUE","",image,"1","","False"])
 
 		products = products.links['next']['url']
